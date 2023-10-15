@@ -1,0 +1,89 @@
+
+<!--das ist eine 'component'-->
+
+<!--Interpolation-->
+{{name}}
+
+<!--Property binding-->
+<input [disabled]="isDisabled">
+
+<!--class binding -->
+<p [ngClass]="myClass">yes yes yoa</p>
+
+<!--style Binding-->
+<p [ngStyle]="myStyle">look at me</p>
+
+<!--event binding-->
+<button (click)="onClickByEventBinding()">click me</button>
+<button (click)="textMsg ='Oi mate'">click me</button>
+<p>{{textMsg}}</p>
+
+<!--template reference variables-->
+<input #myInput type="text">
+<button (click)="refMethod(myInput.value)">click me</button>
+<p>{{refVarString}}</p>
+
+<!--two way binding-->
+<input [(ngModel)]="twoWayBindingVal" type="text">
+{{twoWayBindingVal}}
+
+<!--ng If directive-->
+<p *ngIf="isVisible; else elseNot"> i'm true</p>
+<ng-template #elseNot><p>i'm false</p></ng-template>
+
+<!--ngSwitch directive-->
+<div [ngSwitch]="switchColor">
+  <div *ngSwitchCase="'red'" >Red</div>
+  <div *ngSwitchCase="'blue'" >Blue</div>
+  <div *ngSwitchCase="'green'" >Green</div>
+  <div *ngSwitchDefault>no Color :(</div>
+</div>
+
+<!--ngFor directive-->
+<div *ngFor="let num of forArray; index as i; odd as o;">
+  {{i+1}}. {{num}} {{o}}
+</div>
+
+<!--competent Interaction-->
+<app-child (childEvent)="message=$event"  [parentData]="'dad'" />
+{{message}}
+
+<!--Pipes -->
+<p>{{pipeName | lowercase}}</p>
+<p>{{pipeName | uppercase}}</p>
+<p>{{pipeName | titlecase}}</p>
+<p>{{pipeName | slice:3 | lowercase}}</p>
+<p>{{pipeName | json}}</p>
+<p>{{pipeNum  | number:'1.9-10'}}</p>
+<p>{{pipeNum  | number:'3.4-5'}}</p>
+<p>{{pipeNum  | percent}}</p>
+<p>{{pipeNum  | currency}}</p>
+<p>{{pipeNum  | currency: "€ @ €"}}</p>
+<p>{{pipeDate }}</p>
+<p>{{pipeDate | date:'short'}}</p>
+<p>{{pipeDate | date:'shortDate'}}</p>
+<p>{{pipeDate | date:'shortTime'}}</p>
+
+<!--services-->
+<!-- Dependency Injection as Framework -->
+<app-list/>
+<!--Fetch Data Using HTTP-->
+    <!--look at service-->
+<!--routing-->
+  <!--router outlet-->
+<!--Route Parameters-->
+<!-- https://www.youtube.com/watch?v=qh5nHv-4aw0&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=25 -->
+<!--ParaMap-->
+<!--Optional Route Parameters-->
+
+<!--Angular CLI für List and Dashboard-->
+
+<!--TDF Template Driven Forms-->
+<!--form with ngModel ngForm-->
+<form #userForm="ngForm">
+  <input type="text" #nameField name="userName" [ngModel]="user.name">
+  <small class="isVisible">your name is awesome</small>
+  {{nameField.className}}
+</form>
+
+<!--formbuilder-->
